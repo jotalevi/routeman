@@ -1,13 +1,16 @@
 {
   "name": "ad-routeman",
   "type": "module",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": false,
   "dependencies": {
     "prompt": "^1.2.1"
   },
   "description": "A route manager for AdonisJs",
   "main": "index.js",
+  "bin": {
+    "routeman": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
