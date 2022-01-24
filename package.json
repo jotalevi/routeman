@@ -4,11 +4,11 @@
   "version": "0.2.1",
   "private": false,
   "dependencies": {
+    "ad-routeman": "^0.2.1",
     "prompt": "^1.2.1"
   },
   "description": "A route manager for AdonisJs",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
