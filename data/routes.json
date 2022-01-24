@@ -1,1 +1,2 @@
-{"api":[],"tfp":[["get","/controllerTest/:test","Controller.test"],["get","/branches/:id","BranchController.branch"],["post","/branches/","BranchController.insertBranch"],["delete","/branches/","BranchController.deleteBranch"],["get","/branches/paginate/:page/:rows","BranchController.branchPaginate"]]}
+{
+}
