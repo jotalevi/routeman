@@ -1,5 +1,5 @@
 {
-  "name": "routeman",
+  "name": "ad-routeman",
   "type": "module",
   "version": "0.2.1",
   "private": false,
@@ -18,5 +18,13 @@
     "route",
     "manager",
     "adonis"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jotalevi/routeman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jotalevi/routeman/issues"
+  },
+  "homepage": "https://github.com/jotalevi/routeman"
 }

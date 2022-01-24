@@ -7,22 +7,22 @@ Routeman Version: 0.2.1
 
 Author: Eros Talevi
 
-Github: https://github.com/jotalevi/routeman
+Github: https://github.com/jotalevi/ad-routeman
 
 Instalation
 ```
-npm i routeman
+npm i ad-routeman
 ```
 
 # Usage
 
 ## Add a route
 ```
-node routeman add [http_method] [group_prefix] [route_name] [callback_name]
+node ad-routeman add [http_method] [group_prefix] [route_name] [callback_name]
 ```
 Ie.
 ```
-node routeman add get api user/:id UserController.getUser
+node ad-routeman add get api user/:id UserController.getUser
 ```
 
 | Parameter         | Description                   |
@@ -34,12 +34,12 @@ node routeman add get api user/:id UserController.getUser
 
 ## Add a route based on a existing controller:
 ```
-node routeman add-from [controller_file_name]
+node ad-routeman add-from [controller_file_name]
 ```
 This will help you create a route for each of the Controllers methods
 Ie.
 ```
-node routeman add-from UsersController.ts
+node ad-routeman add-from UsersController.ts
 ```
 
 | Parameter                 | Description                   |
@@ -48,11 +48,11 @@ node routeman add-from UsersController.ts
 
 ## Remove a route:
 ```
-node routeman remove [http_method] [route_name]
+node ad-routeman remove [http_method] [route_name]
 ```
 Ie.
 ```
-node routeman remove get user/:id
+node ad-routeman remove get user/:id
 ```
 | Parameter         | Description                   |
 | :--------         | :--------                     |
@@ -61,17 +61,17 @@ node routeman remove get user/:id
 
 ## Echo all the registered routes:
 ```
-node routeman spit
+node ad-routeman spit
 ```
 
 ## Build router files:
 ```
-node routeman build
+node ad-routeman build
 ```
 
 ## Settings
 ```
-node routeman settings [config_name]:[config_value]
+node ad-routeman settings [config_name]:[config_value]
 ```
 | Parameter             | Description                           |
 | :--------             | :--------                             |
@@ -79,5 +79,5 @@ node routeman settings [config_name]:[config_value]
 | `[config_value]`      | The new value of the variable         |
 
 ## Help
-Using the command ```node routeman help``` will echo this same text, should you ever need it
-node routeman helà
+Using the command ```node ad-routeman help``` will echo this same text, should you ever need it
+node ad-routeman helà
