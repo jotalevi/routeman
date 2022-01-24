@@ -4,9 +4,10 @@ import Adroute from './adroute.js';
 
 export default class Addfrom {
 	static run(filename) {
-		const config = JSON.parse(fs.readFileSync('./data/config.json'));
-		let routes = JSON.parse(fs.readFileSync(config.routes_json_file));
-		let fileContent = fs.readFileSync(`${filename.slice(-3) === '.ts' ? filename : filename + '.ts'}`).toString();
+		const _dir = 'node_modules/ad-routeman';
+		const config = JSON.parse(fs.readFileSync(`${_dir}/data/config.json`));
+		let routes = JSON.parse(fs.readFileSync(_dir + config.routes_json_file));
+		let fileContent = fs.readFileSync(`${config.controllers_route}${filename.slice(-3) === '.ts' ? filename : filename + '.ts'}`).toString();
 
 		let methods = [];
 		let className = '';
@@ -75,6 +76,6 @@ export default class Addfrom {
 			});
 		}, "");
 
-		fs.writeFileSync(config.routes_json_file, JSON.stringify(routes));
+		fs.writeFileSync(_dir + config.routes_json_file, JSON.stringify(routes));
 	}
 }

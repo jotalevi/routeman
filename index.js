@@ -2,18 +2,22 @@
 
 //system imports
 import fs from 'fs';
+import path from 'path';
 import { exit } from 'process';
 import readline from 'readline';
 
 //Default Classes
-import Adroute from './src/adroute.js';
-import Rmroute from './src/rmroute.js';
-import Blroute from './src/blroute.js';
-import Addfrom from './src/addfrom.js';
-import Setting from './src/setting.js';
+import Adroute from 'ad-routeman/src/adroute.js';
+import Rmroute from 'ad-routeman/src/rmroute.js';
+import Blroute from 'ad-routeman/src/blroute.js';
+import Addfrom from 'ad-routeman/src/addfrom.js';
+import Setting from 'ad-routeman/src/setting.js';
+
+//set default dir
+const _dir = 'node_modules/ad-routeman';
 
 //import config
-const config = JSON.parse(fs.readFileSync('data/config.json').toString());
+const config = JSON.parse(fs.readFileSync(`${_dir}/data/config.json`).toString());
 
 if (!config.is_set_up && process.argv[2] != 'setup') {
 	console.log('\n\n\nYou will need to run the setup before you start using rmg.\n');
@@ -33,11 +37,11 @@ if (config.is_set_up && process.argv[2] != 'setup') {
 			Rmroute.run(process.argv[3], process.argv[4]);
 			break;
 		case 'spit':
-			let _routes = JSON.parse(fs.readFileSync(config.routes_json_file));
+			let _routes = JSON.parse(fs.readFileSync(_dir + config.routes_json_file));
 			
 			for (var groupKey in _routes) {
 				_routes[groupKey].forEach(element => {
-					console.log(`${element[0]}:${' '.repeat(12 - element[0].length)}${groupKey}${element[1]}:${' '.repeat((50 - (groupKey + element[1]).toString().length))}${element[2]}`)
+					console.log(`${element[0]}${' '.repeat(12 - element[0].length)}${groupKey}${element[1]}${' '.repeat((50 - (groupKey + element[1]).toString().length))}${element[2]}`)
 				});
 				
 			}
@@ -46,7 +50,7 @@ if (config.is_set_up && process.argv[2] != 'setup') {
 			Blroute.run();
 			break;
 		case 'help':
-			console.log(fs.readFileSync('data/readme.md').toString());
+			console.log(fs.readFileSync(`${_dir}/data/readme.md`).toString());
 			break;
 		case 'settings':
 			Setting.run(process.argv[3]);
@@ -89,7 +93,7 @@ if (config.is_set_up && process.argv[2] != 'setup') {
 
 	rl.on('close', function() {
 		config.is_set_up = true;
-		fs.writeFileSync('data/config.json', JSON.stringify(config));
+		fs.writeFileSync(`${_dir}/data/config.json`, JSON.stringify(config));
 		console.log(config);
 		process.exit(0);
 	});
