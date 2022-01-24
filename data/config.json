@@ -7,6 +7,6 @@
 	"adonis_import_string": "import Route from '@ioc:Adonis/Core/Route'",
 	"controllers_route": "app/Controllers/Http/",
 	"models_route": "app/Models",
-	"routes_json_file": "/data/routes.json",
+	"routes_json_file": "../../routeman/routes.json",
 	"is_set_up": false
 }
