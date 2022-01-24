@@ -6,7 +6,7 @@ export default class Adroute {
 		const _dir = 'node_modules/ad-routeman';
 		const config = JSON.parse(fs.readFileSync(`${_dir}/data/config.json`));
 		
-		let routes = JSON.parse(fs.readFileSync(_dir + config.routes_json_file));
+		let routes = JSON.parse(fs.readFileSync(config.routes_json_file));
 
 		prefxName = prefxName.slice(-1) === '/' ? prefxName.substring(0, prefxName.length - 1) : prefxName;
 		prefxName = prefxName[0] === '/' ? prefxName.slice(1) : prefxName;
@@ -29,6 +29,6 @@ export default class Adroute {
 		}
 
 		console.log(`The route ${methdName}:${prefxName}${routeName} was added`);
-		fs.writeFileSync(_dir + config.routes_json_file, JSON.stringify(routes));
+		fs.writeFileSync(config.routes_json_file, JSON.stringify(routes));
 	}
 }

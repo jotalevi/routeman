@@ -48,7 +48,7 @@ export default class Routeman {
 					Rmroute.run(_inLineParams.argv[3], _inLineParams.argv[4]);
 					break;
 				case 'spit':
-					let _routes = JSON.parse(fs.readFileSync(_dir + config.routes_json_file));
+					let _routes = JSON.parse(fs.readFileSync(config.routes_json_file));
 
 					for (var groupKey in _routes) {
 						_routes[groupKey].forEach((element) => {
