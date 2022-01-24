@@ -27,7 +27,7 @@ export default class Routeman {
 
 		if (!config.is_set_up && _inLineParams.argv[2] != 'setup') {
 			console.log('\n\n\nYou will need to run the setup before you start using rmg.\n');
-			console.log('		node rmg setup\n\n');
+			console.log('		node routeman setup\n\n');
 			exit();
 		}
 
