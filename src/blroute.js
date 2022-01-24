@@ -15,6 +15,6 @@ export default class Blroute {
       routesOutputStr += `}).prefix('${groupKey}')\n`
     }
 
-    fs.writeFileSync(`${config.output_route}routes.ts`, routesOutputStr)
+    fs.writeFileSync(`${config.output_route}${config.output_filename}`, routesOutputStr)
   }
 }
