@@ -1,6 +1,6 @@
 {
 	"use_es5": false,
-	"output_route": "",
+	"output_route": "ad-routeman",
 	"default_api_route_group": "api",
 	"output_filename": "routes.ts",
 	"use_express_format": "false",

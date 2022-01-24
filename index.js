@@ -19,6 +19,12 @@ const _dir = 'node_modules/ad-routeman';
 //import config
 const config = JSON.parse(fs.readFileSync(`${_dir}/data/config.json`).toString());
 
+if (process.argv[2] === 'create-project-folder'){
+	fs.mkdir(config.output_route);
+	fs.writeFileSync('ad-routeman/index.js', 'require(\'node_modules/ad-routeman/index.js\');')
+	exit()
+}
+
 if (!config.is_set_up && process.argv[2] != 'setup') {
 	console.log('\n\n\nYou will need to run the setup before you start using rmg.\n');
 	console.log('		node rmg setup\n\n');

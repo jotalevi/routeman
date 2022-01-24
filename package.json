@@ -8,11 +8,9 @@
   },
   "description": "A route manager for AdonisJs",
   "main": "index.js",
-  "bin": {
-    "routeman": "index.js"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node node_modules/ad-routeman create-project-folder"
   },
   "author": "Eros Talevi",
   "license": "ISC",
