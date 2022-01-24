@@ -1,7 +1,7 @@
 {
   "name": "ad-routeman",
   "type": "module",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "private": false,
   "dependencies": {
     "prompt": "^1.2.1"

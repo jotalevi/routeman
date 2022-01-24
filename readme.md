@@ -1,15 +1,12 @@
 
-# Routemanjs
+# Ad-Routeman
 
 A simple route manager for Adonisjs
 
-Routeman Version: 0.2.1
 
-Author: Eros Talevi
+Github: https://github.com/jotalevi/routeman
 
-Github: https://github.com/jotalevi/ad-routeman
-
-Instalation
+# Instalation
 ```
 npm i ad-routeman
 ```
@@ -79,5 +76,4 @@ node ad-routeman settings [config_name]:[config_value]
 | `[config_value]`      | The new value of the variable         |
 
 ## Help
-Using the command ```node ad-routeman help``` will echo this same text, should you ever need it
-node ad-routeman helà
+Using the command ```node ad-routeman help``` will echo this same text, should you ever need it.
