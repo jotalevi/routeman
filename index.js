@@ -1,0 +1,96 @@
+/* eslint-disable max-len */
+
+//system imports
+import fs from 'fs';
+import { exit } from 'process';
+import readline from 'readline';
+
+//Default Classes
+import Adroute from './src/adroute.js';
+import Rmroute from './src/rmroute.js';
+import Blroute from './src/blroute.js';
+import Addfrom from './src/addfrom.js';
+import Setting from './src/setting.js';
+
+//import config
+const config = JSON.parse(fs.readFileSync('data/config.json').toString());
+
+if (!config.is_set_up && process.argv[2] != 'setup') {
+	console.log('\n\n\nYou will need to run the setup before you start using rmg.\n');
+	console.log('		node rmg setup\n\n');
+	exit();
+}
+
+if (config.is_set_up && process.argv[2] != 'setup') {
+	switch (process.argv[2]) {
+		case 'add':
+			Adroute.run(process.argv[3], process.argv[4], process.argv[5], process.argv[6]);
+			break;
+		case 'add-from':
+			Addfrom.run(process.argv[3]);
+			break;
+		case 'remove':
+			Rmroute.run(process.argv[3], process.argv[4]);
+			break;
+		case 'spit':
+			let _routes = JSON.parse(fs.readFileSync(config.routes_json_file));
+			
+			for (var groupKey in _routes) {
+				_routes[groupKey].forEach(element => {
+					console.log(`${element[0]}:${' '.repeat(12 - element[0].length)}${groupKey}${element[1]}:${' '.repeat((50 - (groupKey + element[1]).toString().length))}${element[2]}`)
+				});
+				
+			}
+			break;
+		case 'build':
+			Blroute.run();
+			break;
+		case 'help':
+			console.log(fs.readFileSync('data/readme.md').toString());
+			break;
+		case 'settings':
+			Setting.run(process.argv[3]);
+			break;
+	}
+} else {
+	const rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout
+	});
+	rl.question('Do you want to use the default settings? [Y/N] y', function(_useDefaultSettings) {
+		if (_useDefaultSettings === 'Y' || _useDefaultSettings === '') {
+			rl.close();
+		} else {
+			rl.question('Do you want to use ES6? [Y/N] y', function(_value) {
+				config.use_es5 = !(_value === 'Y' || _value === 'y' || _value === '');
+			});
+
+			rl.question('Where do you want to output build files [relative path] ./', function(_value) {
+				config.output_route = _value == '' ? './' : _value;
+			});
+
+			rl.question('Do you want to use Express format? [Y/N] n', function(_value) {
+				config.use_express_format = _value === 'Y' || _value === 'y';
+			});
+
+			rl.question('What is your Controllers route? [relative path] [./app/Controllers/Http/] ', function(_value) {
+				config.controllers_route = _value == '' ? './app/Controllers/Http/' : _value;
+			});
+
+			rl.question('What is your Models route? [relative path] [./app/Models/]', function(_value) {
+				config.models_route = _value == '' ? './app/Models/' : _value;
+			});
+
+			rl.question('What is the default grouping path of your service? [api]', function(_r) {
+				config.default_api_route_group = _r == '' ? 'api' : _r;
+			});
+		}
+	});
+
+	rl.on('close', function() {
+		config.is_set_up = true;
+		fs.writeFileSync('data/config.json', JSON.stringify(config));
+		console.log(config);
+		process.exit(0);
+	});
+}

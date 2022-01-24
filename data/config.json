@@ -1,0 +1,12 @@
+{
+	"use_es5": "false",
+	"output_route": "./",
+	"default_api_route_group": "api",
+	"output_filename": "routes.ts",
+	"use_express_format": "false",
+	"adonis_import_string": "import Route from '@ioc:Adonis/Core/Route'",
+	"controllers_route": "./app/Controllers/Http/",
+	"models_route": "./app/Models",
+	"routes_json_file": "./data/routes.json",
+	"is_set_up": "false"
+}
