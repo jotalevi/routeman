@@ -1,6 +1,6 @@
 import fs from 'fs';
 import prompt from 'prompt';
-import Adroute from './adroute.js';
+import Adroute from 'ad-routeman/src/adroute.js';
 
 export default class Addfrom {
 	static run(filename) {
