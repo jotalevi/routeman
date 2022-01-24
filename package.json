@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "mkdir routeman; echo \"import Routeman from '../node_modules/ad-routeman/index.js';\" >> routeman/index.js; echo \"Routeman.run(process);\" >> routeman/index.js; echo '{\"name\": \"routeman\",\"type\": \"module\",\"version\": \"0.1\",\"private\": false,\"dependencies\": {\"prompt\": \"ad-routeman\"},\"main\": \"index.js\",\"scripts\": {},\"author\": \"Eros Talevi\"}' >> routeman/package.json"
+    "postinstall": "cd ..; cd ..; mkdir routeman; echo \"import Routeman from '../node_modules/ad-routeman/index.js';\" >> routeman/index.js; echo \"Routeman.run(process);\" >> routeman/index.js; echo '{\"name\": \"routeman\",\"type\": \"module\",\"version\": \"0.1\",\"private\": false,\"dependencies\": {\"prompt\": \"ad-routeman\"},\"main\": \"index.js\",\"scripts\": {},\"author\": \"Eros Talevi\"}' >> routeman/package.json"
   },
   "author": "Eros Talevi",
   "license": "ISC",
